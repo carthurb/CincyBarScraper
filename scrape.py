@@ -4,6 +4,7 @@ import csv
 import argparse
 
 def Get_HTML_From_URL(url):
+    
     decoded = url.decode("utf-8")
     ascii_url = decoded.encode("ascii", "ignore")
     response = urllib2.urlopen(ascii_url)
@@ -42,6 +43,7 @@ def Get_Phone_From_Id(pid):
 
 
 def main():
+
     parser = argparse.ArgumentParser(description='Scrape the Cincinnati Bar website for phone numbers from a CSV list of names')
     parser.add_argument('source', nargs=1, help='Source filename -- CSV containing a list of names.  Formatted Firstname, Lastname.')
     parser.add_argument('outfile', nargs=1, help='Output filename -- CSV Containing a list of names with phone numbers')
@@ -50,8 +52,8 @@ def main():
     source = args.source[0]
     outfile = args.outfile[0]
 
-
     outrows = []
+
     with open(source, 'rb') as csvfile:
         r = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in r:
@@ -76,9 +78,6 @@ def main():
         writer = csv.writer(csv_outfile)
         writer.writerows(outrows)
 
-
-
-            #print "{0},{1},{2}".format(lastname, firstname, thisphone)
 
 if __name__ == "__main__":
     main()
