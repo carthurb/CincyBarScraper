@@ -1,7 +1,7 @@
 # CincyBarScraper
 Scrape the Cincinnati Bar website for phone numbers from a CSV list of names
 
-Usage: python search.py sourcefile.csv outfile.csv
+Usage: python scrape.py sourcefile.csv outfile.csv
 
 The source file should be a standard CSV with Firstname/Lastname as columns, no headers.
 
